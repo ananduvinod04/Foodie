@@ -7,7 +7,9 @@ import AdminLayout from "./components/AdminComponents/AdminLayout";
 import CustomerLayout from "./components/CustomerComponents/CustomerLayout";
 import ProtectedRoute from "./routes/ProtectedRoute";
 
+
 import'./index.css'
+import AllMenu from "./components/CustomerComponents/CustomerComponents/allMenuItems";
 
 
 const router = createBrowserRouter([
@@ -36,6 +38,12 @@ const router = createBrowserRouter([
             <CustomerLayout />
           </ProtectedRoute>
         ),
+        children:[
+           {
+        index: true, // default route
+        element: <AllMenu />,
+      },
+        ]
       },
     ],
   },
