@@ -202,8 +202,7 @@ const itemMaster = [
     image: "https://imgs.search.brave.com/nMpGB-G56CdJ06LSN0VfD_6rwiLLVeqqlNVp3t9A3T4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YXdlc29tZWN1aXNp/bmUuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDA4LzAyL1Bh/bmVlci1QYWtvZGEu/anBn",
   },
 
-  // You can continue same pattern to reach 50 items.
-  // For brevity, I can generate the remaining 30 items programmatically if you want.
+  
 ];
 
 export default itemMaster;

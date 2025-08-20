@@ -1,66 +1,45 @@
-import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 import logo from "/src/assets/logo.png";
-
-
+import cartLogo from '../../assets/cartLogo.png';
+import profileIcon from '../../assets/profileIcon.png';
 
 export default function CustomerLayout() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleLinkClick = () => setIsOpen(false);
+  const totalQuantity = useSelector(state => state.cart.totalQuantity);
 
   return (
     <div className="flex flex-col min-h-screen bg-[#fbe6d9]">
       {/* Navbar */}
-      <header className="bg-[#fbe6d9] text-orange-600 font-bold flex justify-between items-center shadow-md px-6">
+      <header className="bg-[#fbe6d9] fixed top-0 left-0 w-full z-50 text-orange-600 font-bold flex justify-between items-center shadow-md px-6 h-[80px]">
         <div className="logoNameContainer flex gap-2 items-center">
           <div className="logoContainer w-[80px] h-[80px]">
-            <img src={logo} alt="Logo" className=" object-cover scale-150" />
+            <img src={logo} alt="Logo" className="object-cover scale-150" />
           </div>
-        
+          <div className="nameContainer">
+            <h1 className="text-orange-600 text-2xl font-serif">foodie</h1>
+          </div>
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex gap-6">
-          <Link to="/customerHome" className="hover:underline">
-            Home
+        <nav className="flex gap-4 items-center relative">
+          {/* Cart link with notification */}
+          <Link to="/customer/cart" className="relative hover:opacity-80">
+            <img src={cartLogo} alt="Cart" className="w-6 h-6" />
+            {totalQuantity > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                {totalQuantity}
+              </span>
+            )}
           </Link>
-          <Link to="/products" className="hover:underline">
-            Products
-          </Link>
-          <Link to="/cart" className="hover:underline">
-            Cart
+
+          <Link to="/profile" className="hover:opacity-80">
+            <img src={profileIcon} alt="Profile" className="w-6 h-6" />
           </Link>
         </nav>
-
-        {/* Hamburger Button (Mobile) */}
-        <button
-          className="md:hidden flex flex-col gap-1"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <span className="w-6 h-0.5 bg-orange-600"></span>
-          <span className="w-6 h-0.5 bg-orange-600"></span>
-          <span className="w-6 h-0.5 bg-orange-600"></span>
-        </button>
       </header>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <nav className="bg-[#fbe6d9] text-orange-600 font-bold flex flex-col items-start p-4 md:hidden shadow-md">
-          <Link to="/customerHome" onClick={handleLinkClick} className="py-2">
-            Home
-          </Link>
-          <Link to="/products" onClick={handleLinkClick} className="py-2">
-            Products
-          </Link>
-          <Link to="/cart" onClick={handleLinkClick} className="py-2">
-            Cart
-          </Link>
-        </nav>
-      )}
-
       {/* Main Content */}
-      <main className="flex-1 p-4">
+      <main className="flex-1 p-4 mt-[80px]">
         <Outlet />
       </main>
 
