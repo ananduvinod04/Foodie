@@ -12,8 +12,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import CustomerDashboard from "./components/CustomerComponents/CustomerDashboard";
 import CategoryDisplay from "./components/CustomerComponents/CategoryDisplay";
 
-
-import './index.css';
+import "./index.css";
 import Cart from "./components/CustomerComponents/cart";
 
 const router = createBrowserRouter([
@@ -48,7 +47,7 @@ const router = createBrowserRouter([
             path: "category/:categoryName", // dynamic route
             element: <CategoryDisplay />,
           },
-          { path: "cart", element: <Cart /> }
+          { path: "cart", element: <Cart /> },
         ],
       },
     ],
@@ -57,7 +56,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider store={store}> {/* Redux Provider */}
+    <Provider store={store}>
+      {" "}
+      {/* Redux Provider */}
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>

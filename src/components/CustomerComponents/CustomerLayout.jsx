@@ -17,6 +17,7 @@ export default function CustomerLayout() {
           </div>
           <div className="nameContainer">
             <h1 className="text-orange-600 text-2xl font-serif">foodie</h1>
+            <h3>“Serving Happiness on a Table”</h3>
           </div>
         </div>
 

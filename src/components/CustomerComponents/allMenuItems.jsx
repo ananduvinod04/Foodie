@@ -6,8 +6,8 @@ import { addItem, decrementItem } from "../../redux/cartSlice";
 const AllMenu = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("");
-  const [openSort, setOpenSort] = useState(false); // dropdown state
-  const sortRef = useRef(null);
+  const [openSort, setOpenSort] = useState(false); // STATE HANDLS SORTING OF ALL ITEMS
+  const sortRef = useRef(null);//CLOSE SORT DROPDOWN WHILE CLICKS ON OUTSIDE
 
   // Redux hooks
   const dispatch = useDispatch();
