@@ -1,21 +1,42 @@
 import { useSelector, useDispatch } from "react-redux";
 import { addItem, decrementItem, removeItem, clearCart } from "../../redux/cartSlice";
-import { useNavigate } from "react-router-dom"; // For navigation to checkout page
+import { useNavigate } from "react-router-dom";
+
 
 const Cart = () => {
   const cartItems = useSelector(state => state.cart.items);
   const totalPrice = useSelector(state => state.cart.totalPrice);
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Hook to navigate programmatically
+  const navigate = useNavigate();
 
   if (cartItems.length === 0) {
     return <h2 className="text-center mt-10 text-lg">Your cart is empty</h2>;
   }
 
   const handleCheckout = () => {
-    // Redirect to checkout page or show alert
-    // You can create a /checkout route later
+    // ✅ Get current user from localStorage (set in Login.jsx)
+    const currentUser = JSON.parse(localStorage.getItem("user")) 
+
+    const newOrder = {
+      id: `ORD-${Date.now()}`,
+      items: cartItems,
+      total: totalPrice,
+      time: new Date().toLocaleString(),
+      userName: currentUser.name, // 🔥 from logged in user
+      userId: currentUser.userId,
+      role: currentUser.role,
+    };
+
+    // ✅ Save persistently in localStorage
+    const savedOrders = JSON.parse(localStorage.getItem("orders")) || [];
+    savedOrders.push(newOrder);
+    localStorage.setItem("orders", JSON.stringify(savedOrders));
+
+    // Navigate
     navigate("/customer/checkout");
+
+    // Clear cart
+    dispatch(clearCart());
   };
 
   return (
@@ -32,10 +53,25 @@ const Cart = () => {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <button onClick={() => dispatch(decrementItem(item.id))} className="px-2 py-1 bg-gray-200 rounded">-</button>
+              <button
+                onClick={() => dispatch(decrementItem(item.id))}
+                className="px-2 py-1 bg-gray-200 rounded"
+              >
+                -
+              </button>
               <span>{item.quantity}</span>
-              <button onClick={() => dispatch(addItem(item))} className="px-2 py-1 bg-gray-200 rounded">+</button>
-              <button onClick={() => dispatch(removeItem(item.id))} className="px-2 py-1 bg-red-500 text-white rounded">Remove</button>
+              <button
+                onClick={() => dispatch(addItem(item))}
+                className="px-2 py-1 bg-gray-200 rounded"
+              >
+                +
+              </button>
+              <button
+                onClick={() => dispatch(removeItem(item.id))}
+                className="px-2 py-1 bg-red-500 text-white rounded"
+              >
+                Remove
+              </button>
             </div>
           </div>
         ))}
@@ -44,10 +80,16 @@ const Cart = () => {
       <div className="mt-4 flex justify-between items-center gap-2">
         <h2 className="font-bold text-lg">Total: ₹{totalPrice}</h2>
         <div className="flex gap-2">
-          <button onClick={() => dispatch(clearCart())} className="px-4 py-2 bg-red-500 text-white rounded">
+          <button
+            onClick={() => dispatch(clearCart())}
+            className="px-4 py-2 bg-red-500 text-white rounded"
+          >
             Clear Cart
           </button>
-          <button onClick={handleCheckout} className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+          <button
+            onClick={handleCheckout}
+            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+          >
             Checkout
           </button>
         </div>
