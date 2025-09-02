@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         ),
 children: [
   { index: true, element: <AdminDashboard /> },
-  { path: "orders", element: <OrderManagement /> },   // ✅ matches dashboard
+  { path: "orders", element: <OrderManagement /> },   
     { path: "UserManagement", element: <UserManagement /> }, 
       { path: "InventoryManagement", element: <InventoryManagement /> }, 
      { path: "edit-inventory/:id", element: <EditInventory /> },
