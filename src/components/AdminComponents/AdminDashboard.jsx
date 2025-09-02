@@ -1,7 +1,7 @@
 import cartLogo from "../../assets/cartLogo.png";
 import userMangementLogo from "../../assets/userMangementLogo.png";
 import inventoryManagementLogo from "../../assets/inventoryManagementLogo.png";
-import categoryManagementLogo from "../../assets/categoryManagementLogo.PNG";
+import categoryManagementLogo from "../../assets/categoryManagementLogo.png";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
