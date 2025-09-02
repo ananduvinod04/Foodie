@@ -15,7 +15,7 @@ import CategoryDisplay from "./components/CustomerComponents/CategoryDisplay";
 import "./index.css";
 import Cart from "./components/CustomerComponents/cart";
 import AdminDashboard from "./components/AdminComponents/AdminDashboard";
-import OrderManagement from "./components/AdminComponents/orderManagement";
+import OrderManagement from "./components/AdminComponents/orderManagement.jsx";
 import Profile from "./components/Profile";
 import UserManagement from "./components/AdminComponents/UserManagement";
 import InventoryManagement from "./components/AdminComponents/InventoryManagement";
