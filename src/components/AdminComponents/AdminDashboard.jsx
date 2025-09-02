@@ -17,7 +17,7 @@ function AdminDashboard() {
       logo: inventoryManagementLogo,
       path:"InventoryManagement"
     },
-    { id: 3, name: "catagory management", logo: categoryManagementLogo ,path:"cartManagement"},
+    { id: 3, name: "catagory management", logo: categoryManagementLogo ,path:"categoryManagement"},
   ];
   return (
     <div className="flex justify-center items-center flex-wrap ">

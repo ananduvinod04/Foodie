@@ -20,6 +20,7 @@ import Profile from "./components/Profile";
 import UserManagement from "./components/AdminComponents/UserManagement";
 import InventoryManagement from "./components/AdminComponents/InventoryManagement";
 import EditInventory from "./components/AdminComponents/EditInventory";
+import CategoryManagement from "./components/AdminComponents/CatagoryManagent";
 
 
 
@@ -48,6 +49,7 @@ children: [
     { path: "UserManagement", element: <UserManagement /> }, 
       { path: "InventoryManagement", element: <InventoryManagement /> }, 
      { path: "edit-inventory/:id", element: <EditInventory /> },
+      { path: "categoryManagement", element: <CategoryManagement /> },
 
 ],
 
