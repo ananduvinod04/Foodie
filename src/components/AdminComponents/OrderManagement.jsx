@@ -8,7 +8,7 @@ function OrderManagement() {
     setOrders(savedOrders);
   }, []);
 
-  // ✅ Update order status
+  //Update order status
   const updateOrderStatus = (id, status) => {
     const updatedOrders = orders.map((order) =>
       order.id === id ? { ...order, status } : order
@@ -17,7 +17,7 @@ function OrderManagement() {
     localStorage.setItem("orders", JSON.stringify(updatedOrders));
   };
 
-  // ✅ Remove order completely
+  //  Remove order completely
   const removeOrder = (id) => {
     const updatedOrders = orders.filter((order) => order.id !== id);
     setOrders(updatedOrders);

@@ -103,12 +103,15 @@ export default function Login() {
           <img src={logo} alt="logo" className="w-[400px]" />
         </div>
 
-        <div className="bg-white shadow-md rounded-xl p-6 w-full max-w-xs sm:max-w-sm">
+        <div className="bg-orange-100 shadow-md rounded-xl p-6 w-full max-w-xs sm:max-w-sm">
           <h1 className="text-xl font-bold text-center text-gray-800 mb-4">
             {isSignup ? "Sign Up" : "Login"}
           </h1>
 
-          <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
+          <form
+            className="flex flex-col gap-3"
+            onSubmit={(e) => e.preventDefault()}
+          >
             {isSignup && (
               <>
                 <div>
@@ -117,9 +120,11 @@ export default function Login() {
                     placeholder="Full Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="border border-gray-300 p-2 rounded-md w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="border border-gray-300 p-2 rounded-md w-full text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
                   />
-                  {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
+                  {errors.name && (
+                    <p className="text-red-500 text-xs">{errors.name}</p>
+                  )}
                 </div>
 
                 <div>
@@ -128,21 +133,25 @@ export default function Login() {
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="border border-gray-300 p-2 rounded-md w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="border border-gray-300 p-2 rounded-md w-full text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
                   />
-                  {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
+                  {errors.email && (
+                    <p className="text-red-500 text-xs">{errors.email}</p>
+                  )}
                 </div>
 
                 <div>
                   <select
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
-                    className="border border-gray-300 p-2 rounded-md w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="border border-gray-300 p-2 rounded-md w-full text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
                   >
                     <option value="customer">Customer</option>
                     <option value="admin">Admin</option>
                   </select>
-                  {errors.role && <p className="text-red-500 text-xs">{errors.role}</p>}
+                  {errors.role && (
+                    <p className="text-red-500 text-xs">{errors.role}</p>
+                  )}
                 </div>
               </>
             )}
@@ -153,9 +162,11 @@ export default function Login() {
                 placeholder="User ID"
                 value={userId}
                 onChange={(e) => setUserId(e.target.value)}
-                className="border border-gray-300 p-2 rounded-md w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="border border-gray-300 p-2 rounded-md w-full text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
               />
-              {errors.userId && <p className="text-red-500 text-xs">{errors.userId}</p>}
+              {errors.userId && (
+                <p className="text-red-500 text-xs">{errors.userId}</p>
+              )}
             </div>
 
             <div>
@@ -164,15 +175,17 @@ export default function Login() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="border border-gray-300 p-2 rounded-md w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="border border-gray-300 p-2 rounded-md w-full text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
               />
-              {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>}
+              {errors.password && (
+                <p className="text-red-500 text-xs">{errors.password}</p>
+              )}
             </div>
 
             <button
               type="button"
               onClick={isSignup ? handleSignup : handleLogin}
-              className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 rounded-md transition duration-200 text-sm"
+              className="bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 rounded-md transition duration-200 text-sm"
             >
               {isSignup ? "Sign Up" : "Login"}
             </button>
@@ -181,7 +194,7 @@ export default function Login() {
           <p className="text-xs text-center mt-3">
             {isSignup ? "Already have an account?" : "Don’t have an account?"}{" "}
             <button
-              className="text-blue-500 hover:underline"
+              className="text-orange-600 hover:underline"
               onClick={() => {
                 setErrors({});
                 setIsSignup(!isSignup);

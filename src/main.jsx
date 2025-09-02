@@ -21,6 +21,7 @@ import UserManagement from "./components/AdminComponents/UserManagement";
 import InventoryManagement from "./components/AdminComponents/InventoryManagement";
 import EditInventory from "./components/AdminComponents/EditInventory";
 import CategoryManagement from "./components/AdminComponents/CatagoryManagent";
+import About from "./components/CustomerComponents/About";
 
 
 
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
       { index: true, element: <Login /> },
       { path: "login", element: <Login /> },
   { path: "profile", element: <Profile /> },
+   
 
       // Admin routes
       {
@@ -70,6 +72,8 @@ children: [
             element: <CategoryDisplay />,
           },
           { path: "cart", element: <Cart /> },
+           { path: "about", element: <About /> }
+         
         ],
       },
     ],

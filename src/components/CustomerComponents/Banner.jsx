@@ -7,7 +7,8 @@ export default function Banner() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative bg-gradient-to-r from-orange-100 via-white to-orange-50 overflow-hidden">
+    <div className="relative bg-gradient-to-r from-orange-100 via-white to-orange-50  dark:from-gray-900 dark:via-black dark:to-gray-800
+                 overflow-hidden transition-colors duration-500 ">
       {/* Animated food items in background */}
       
 

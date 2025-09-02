@@ -24,28 +24,30 @@ export default function Profile() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
-      <div className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-md">
-        <h1 className="text-2xl font-bold text-center mb-6">Profile</h1>
+    <div className="flex items-center justify-center min-h-screen bg-[#fbe6d9] dark:bg-gray-900 px-4 transition-colors duration-500">
+      <div className="bg-[#fbe6d9] dark:bg-gray-800 shadow-lg rounded-2xl p-6 w-full max-w-md transition-colors duration-500">
+        <h1 className="text-2xl font-bold text-center mb-6 text-orange-600 dark:text-orange-400">
+          Profile
+        </h1>
 
-        <div className="space-y-4">
+        <div className="space-y-4 text-black dark:text-white">
           <div>
-            <p className="text-gray-500 text-sm">Full Name</p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">Full Name</p>
             <p className="text-lg font-semibold">{currentUser.name}</p>
           </div>
 
           <div>
-            <p className="text-gray-500 text-sm">Email</p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">Email</p>
             <p className="text-lg">{currentUser.email || "N/A"}</p>
           </div>
 
           <div>
-            <p className="text-gray-500 text-sm">User ID</p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">User ID</p>
             <p className="text-lg">{currentUser.userId}</p>
           </div>
 
           <div>
-            <p className="text-gray-500 text-sm">Role</p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">Role</p>
             <p className="text-lg capitalize">{currentUser.role}</p>
           </div>
         </div>
